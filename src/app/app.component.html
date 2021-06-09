@@ -45,17 +45,24 @@
   <input [(ngModel)]="modelToAdd" placeholder="Model">
   <input [(ngModel)]="yearToAdd" placeholder="Year">
 
-  <button (click)="addCar()">Add Car</button>
+<button (click)="addCar()">Add Car</button>
 
-  <div class="car-list-container">
-    <div class="car-list-item" *ngFor="let car of cars; let i = index">
-      <p>{{ i + 1 }}</p>
-      <p class="car-property">{{ car.make }}</p>
-      <p class="car-property">{{ car.model }}</p>
-      <p class="car-property">{{ car.year }}</p>
+<div class="car-list-container">
+  <div class="car-list-item" *ngFor="let car of cars; let i = index">
+    <p>{{ i + 1 }}</p>
+    <p class="car-property">{{ car.make }}</p>
+    <p class="car-property">{{ car.model }}</p>
+    <p class="car-property">{{ car.year }}</p>
 
-      <button (click)="removeCar(i)">Remove Car</button>
-    </div>
+    <button (click)="removeCar(i)">Remove Car</button>
   </div>
+</div>
+
+<app-list-item></app-list-item>
+<app-list-item></app-list-item>
+<app-list-item></app-list-item>
+<app-list-item></app-list-item>
+<app-list-item></app-list-item>
 
 <router-outlet></router-outlet>
+
