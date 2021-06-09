@@ -293,6 +293,21 @@ svg#clouds {
   }
 }
 
-span {
-  background-color: red;
+p {
+  margin-right: 10px;
+}
+
+.car-list-container {
+  display: flex;
+  width: 100%;
+  /* justify-content: space-evenly;  */
+}
+
+.car-list-item {
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.car-property {
+  /* font-size: 20px; */
 }
