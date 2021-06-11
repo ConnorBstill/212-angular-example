@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Car } from '../app/interfaces/car.interface';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +15,7 @@ export class AppComponent {
 
   placeholder: string = '';
 
-  cars = [
+  cars: Car[] = [
     {
       make: 'Honda',
       model: 'Civic',
@@ -50,12 +52,10 @@ export class AppComponent {
   }
 
   returnFirstInteger() {
-    console.log('returnFirstInteger')
     return this.firstInteger
   }
 
   returnSecondInteger() {
-    console.log('returnSecondInteger')
     return this.secondInteger
   }
 

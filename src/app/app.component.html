@@ -48,21 +48,10 @@
 <button (click)="addCar()">Add Car</button>
 
 <div class="car-list-container">
-  <div class="car-list-item" *ngFor="let car of cars; let i = index">
-    <p>{{ i + 1 }}</p>
-    <p class="car-property">{{ car.make }}</p>
-    <p class="car-property">{{ car.model }}</p>
-    <p class="car-property">{{ car.year }}</p>
-
-    <button (click)="removeCar(i)">Remove Car</button>
-  </div>
+  <app-list-item 
+    *ngFor="let car of cars; let i = index" 
+    [car]="car"></app-list-item>
 </div>
-
-<app-list-item></app-list-item>
-<app-list-item></app-list-item>
-<app-list-item></app-list-item>
-<app-list-item></app-list-item>
-<app-list-item></app-list-item>
 
 <!-- This doesn't do anything until we add routing -->
 <router-outlet></router-outlet>
