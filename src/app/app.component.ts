@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { 
+  Component, 
+  ViewChild, 
+  ElementRef, 
+  AfterViewInit } from '@angular/core';
 
 import { Car } from '../app/interfaces/car.interface';
 
@@ -7,7 +11,10 @@ import { Car } from '../app/interfaces/car.interface';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
+  @ViewChild('firstIntegerInput', { static: false }) firstIntegerInput: ElementRef;
+
   title = 'asdf';
 
   firstInteger: number = 0;
@@ -41,6 +48,10 @@ export class AppComponent {
   makeToAdd = '';
   modelToAdd = '';
   yearToAdd: any = null;
+
+  ngAfterViewInit() {
+    console.log(this.firstIntegerInput)
+  }
 
   addTwoNumbers(a: number, b: number) {
     return a + b;

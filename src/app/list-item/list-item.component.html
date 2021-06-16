@@ -2,6 +2,8 @@
   <p class="car-property">{{ car.make }}</p>
   <p class="car-property">{{ car.model }}</p>
   <p class="car-property">{{ car.year }}</p>
+  
+  <ng-content></ng-content>
 </div>
 
-<!-- <button (click)="removeCar(i)">Remove Car</button> -->
+<button (click)="removeCar()">Remove Car</button>

@@ -3,7 +3,9 @@ import {
   Input,
   OnInit, 
   AfterContentChecked,
-  AfterContentInit
+  AfterContentInit,
+  EventEmitter,
+  Output
 } from '@angular/core';
 
 import { Car } from '../interfaces/car.interface';
@@ -20,23 +22,25 @@ export class ListItemComponent implements OnInit, AfterContentChecked, AfterCont
     year: 0
   }
 
+  @Output() removeCarEvent = new EventEmitter();
+
   constructor() {
-    console.log('ListItemComponent constructor');
+    // console.log('ListItemComponent constructor');
   }
 
   ngOnInit(): void {
-    console.log('ListItemComponent on init');
+    // console.log('ListItemComponent on init');
   }
 
   ngAfterContentInit() {
-    console.log('ListItemComponent ngAfterContentInit');
+    // console.log('ListItemComponent ngAfterContentInit');
   }
 
   ngAfterContentChecked() {
-    console.log('ListItemComponent ngAfterContentChecked');
+    // console.log('ListItemComponent ngAfterContentChecked');
   }
 
-  removeCar(event: number) {
-
+  removeCar() {
+    this.removeCarEvent.emit();
   }
 }

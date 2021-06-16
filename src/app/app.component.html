@@ -31,6 +31,7 @@
     <ng-template #secondIntegerEmpty>The first integer is empty</ng-template>
 
     <input
+      #firstIntegerInput
       [(ngModel)]="firstInteger" 
       [placeholder]="placeholder">
 
@@ -50,7 +51,11 @@
 <div class="car-list-container">
   <app-list-item 
     *ngFor="let car of cars; let i = index" 
-    [car]="car"></app-list-item>
+    [car]="car"
+    (removeCarEvent)="removeCar(i)">
+
+    <p>This is displayed in the child wherever ng-content is!{{ title }}</p>
+  </app-list-item>
 </div>
 
 <!-- This doesn't do anything until we add routing -->
