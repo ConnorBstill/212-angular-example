@@ -2,16 +2,21 @@ import {
   Component, 
   ViewChild, 
   ElementRef, 
-  AfterViewInit } from '@angular/core';
+  AfterViewInit,
+  OnInit
+} from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Car } from '../app/interfaces/car.interface';
+
+import { CarsService } from '../app/cars.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
 
   @ViewChild('firstIntegerInput', { static: false }) firstIntegerInput: ElementRef;
 
@@ -22,35 +27,41 @@ export class AppComponent implements AfterViewInit {
 
   placeholder: string = '';
 
-  cars: Car[] = [
-    {
-      make: 'Honda',
-      model: 'Civic',
-      year: 2005
-    },
-    {
-      make: 'Toyota',
-      model: 'Prius',
-      year: 2010
-    },
-    {
-      make: 'Ford',
-      model: 'Focus',
-      year: 2006
-    },
-    {
-      make: 'Ford',
-      model: 'F-150',
-      year: 2012
-    }
-  ];
+  cars: Car[] = [];
 
   makeToAdd = '';
   modelToAdd = '';
   yearToAdd: any = null;
 
+  userForm: FormGroup;
+
+  constructor(
+    private readonly carsService: CarsService,
+    private readonly formBuilder: FormBuilder
+  ) {
+    this.userForm = this.formBuilder.group({
+      firstName: ['', []],
+      lastName: ['', []],
+      userName: ['', []],
+      email: ['', []],
+    });
+  }
+
+  ngOnInit() {
+    this.cars = this.carsService.getCars();
+
+    this.userForm.valueChanges.subscribe(val => {
+      
+      console.log('val', val)
+    });
+  }
+
   ngAfterViewInit() {
     console.log(this.firstIntegerInput)
+  }
+
+  logForm() {
+    console.log('userForm', this.userForm);
   }
 
   addTwoNumbers(a: number, b: number) {
