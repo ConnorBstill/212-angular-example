@@ -9,11 +9,15 @@ import { ListItemModule } from './list-item/list-item.module';
 
 import { CarsService } from './cars.service';
 import { CardComponent } from './card/card.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { CarsPageComponent } from './cars-page/cars-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    LoginPageComponent,
+    CarsPageComponent
   ],
   imports: [
     BrowserModule,
