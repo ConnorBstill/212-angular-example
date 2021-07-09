@@ -59,7 +59,7 @@
 
 <div>
   <form [formGroup]="userForm" class="user-form">
-    <input 
+    <input
       class="user-form-control" 
       formControlName="firstName" 
       placeholder="First name">
@@ -80,5 +80,7 @@
       placeholder="Email">
   </form>
 
-  <button (click)="logForm()">Log Form</button>
+  <button 
+    (click)="logForm()" 
+    [disabled]="userForm.status === 'INVALID'">Log Form</button>
 </div>

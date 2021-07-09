@@ -19,6 +19,9 @@ export class LoginPageComponent implements OnInit {
       { 
         queryParams: {
           queryParamKey: 'Query param value'
+        },
+        state: {
+          routerStateKey: 'Router state value'
         }
       }
     );

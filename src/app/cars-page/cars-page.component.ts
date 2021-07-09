@@ -1,12 +1,11 @@
 import { 
   Component, 
   ViewChild, 
-  ElementRef, 
-  AfterViewInit,
+  ElementRef,
   OnInit
 } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Car } from '../interfaces/car.interface';
 
@@ -38,14 +37,19 @@ export class CarsPageComponent implements OnInit {
   constructor(
     private readonly carsService: CarsService,
     private readonly formBuilder: FormBuilder,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router
   ) {
     this.userForm = this.formBuilder.group({
-      firstName: ['', []],
+      firstName: ['', [Validators.required]],
       lastName: ['', []],
-      userName: ['', []],
-      email: ['', []],
+      userName: ['', [Validators.required, Validators.minLength(4)]],
+      email: ['', [Validators.required, Validators.email]],
     });
+
+    if (this.router.getCurrentNavigation()) {
+      console.log(this.router.getCurrentNavigation()?.extras?.state);
+    }
   }
 
   ngOnInit() {
