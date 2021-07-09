@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from '../interfaces/car.interface';
 
 import { CarsService } from '../cars.service';
+
+import { minLength } from '../common/validators';
 @Component({
   selector: 'app-cars-page',
   templateUrl: './cars-page.component.html',
@@ -43,7 +45,8 @@ export class CarsPageComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', []],
-      userName: ['', [Validators.required, Validators.minLength(4)]],
+      // minLength already exists on Validators, this is jsut an example of a custom validator
+      userName: ['', [Validators.required, minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
     });
 
