@@ -7,9 +7,7 @@ import {
 } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { Car } from '../app/interfaces/car.interface';
-
-import { CarsService } from '../app/cars.service';
+import { TitleCase } from './title-case.pipe';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +15,16 @@ import { CarsService } from '../app/cars.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  today: any = new Date();
+  toolbarText: string = 'This is where you would put a toolbar'
 
   constructor(
-    private readonly formBuilder: FormBuilder
+    private readonly formBuilder: FormBuilder,
+    private readonly titleCasePipe: TitleCase
   ) {
   }
 
   ngOnInit() {
+    console.log('ngOnInit', this.titleCasePipe.transform(this.toolbarText))
   }
 }

@@ -1,5 +1,7 @@
 <!-- This doesn't do anything until we add routing -->
-<div><p>This is in the app component!!! This is where you would put a toolbar</p></div>
+<div>
+  <p>Today is: {{ today | date: 'M/d/yy, hh:mm a' }} {{ toolbarText | titleCase }}</p>
+</div>
 
 <router-outlet></router-outlet>
 

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+
+import { TitleCase } from './title-case.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +19,8 @@ import { CarsPageComponent } from './cars-page/cars-page.component';
     AppComponent,
     CardComponent,
     LoginPageComponent,
-    CarsPageComponent
+    CarsPageComponent,
+    TitleCase
   ],
   imports: [
     BrowserModule,
@@ -25,9 +28,9 @@ import { CarsPageComponent } from './cars-page/cars-page.component';
     FormsModule,
     CommonModule,
     ListItemModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [CarsService],
+  providers: [CarsService, DatePipe, TitleCase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
