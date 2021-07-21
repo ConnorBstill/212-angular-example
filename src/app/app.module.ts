@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TitleCase } from './title-case.pipe';
 
@@ -29,6 +30,7 @@ import { CarsPageComponent } from './cars-page/cars-page.component';
     CommonModule,
     ListItemModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [CarsService, DatePipe, TitleCase],
   bootstrap: [AppComponent]
