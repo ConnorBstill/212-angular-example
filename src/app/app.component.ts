@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   today: any = new Date();
   toolbarText: string = 'This is where you would put a toolbar';
 
-  books: any[] = [];
+  posts: any[] = [];
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -32,10 +32,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     console.log('ngOnInit', this.titleCasePipe.transform(this.toolbarText))
 
-    this.httpService.getLotrBooks().then(res => {
+    this.httpService.getPosts().then(res => {
       console.log('Books', res);
-      this.books = res.docs;
-      console.log(this.books)
+      this.posts = res;
     });
   }
 }
